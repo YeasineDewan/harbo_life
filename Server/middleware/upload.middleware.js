@@ -1,5 +1,11 @@
 import multer from "multer";
-import sharp from "sharp";
+
+let sharp;
+try {
+  sharp = (await import("sharp")).default;
+} catch {
+  sharp = null;
+}
 
 const upload = multer({
     storage: multer.memoryStorage(),
@@ -17,6 +23,7 @@ export const uploadSingle = (fieldName = "image") => upload.single(fieldName);
 
 export const processImage = (options = {}) => async (req, res, next) => {
     if (!req.file) return next();
+    if (!sharp) return next(); // skip processing if sharp unavailable (e.g. Vercel)
 
     const { width, height, quality = 80 } = options;
 
