@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Environment & credentials
+.env
+*.env
+atlas-credentials.env
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
