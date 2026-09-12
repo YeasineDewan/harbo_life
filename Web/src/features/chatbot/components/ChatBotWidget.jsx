@@ -12,7 +12,7 @@ const ChatBotWidget = () => {
 
   const toggleChat = useCallback(() => {
     if (!user) {
-      toast.error("Please log in to use the Rochetta Assistant.");
+      toast.error("Please log in to use the Harbolife Assistant.");
       return;
     }
     setIsOpen((prev) => !prev);
@@ -43,7 +43,7 @@ const ChatBotWidget = () => {
 
             <div className="flex flex-col text-left pr-1">
               <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest leading-none">
-                Rochetta AI
+                Harbolife AI
               </span>
               <span className="text-[11px] text-gray-500 dark:text-gray-400 font-semibold mt-1">
                 Ask me anything!

@@ -5,9 +5,9 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Rochetta API",
+      title: "Harbolife API",
       version: "1.0.0",
-      description: "API documentation for Rochetta project",
+      description: "API documentation for Harbolife project",
     },
     servers: [
       {

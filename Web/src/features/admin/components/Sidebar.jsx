@@ -92,7 +92,7 @@ export default function Sidebar({ mobileOpen, onMobileClose }) {
             <Activity className="w-6 h-6 text-(--color-primary-700)" />
           </div>
           <span className="text-2xl font-bold text-white tracking-wide">
-            Rochetta
+            Harbolife
           </span>
 
           <button

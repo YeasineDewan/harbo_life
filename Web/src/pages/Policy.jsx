@@ -33,7 +33,7 @@ export default function Policy() {
       ),
       title: "4. Shipping & Delivery",
       content:
-        "We strive to deliver within 2-4 business days. Rochetta is not liable for delays caused by incorrect addresses provided by the user. Urgent deliveries are subject to local availability.",
+        "We strive to deliver within 2-4 business days. Harbolife is not liable for delays caused by incorrect addresses provided by the user. Urgent deliveries are subject to local availability.",
     },
   ];
 
@@ -48,7 +48,7 @@ export default function Policy() {
                 Terms & Privacy Policy
               </h1>
               <p className="text-lg text-(--color-text-secondary) dark:text-gray-400 leading-relaxed">
-                At Rochetta, we prioritize your health, privacy, and security.
+                At Harbolife, we prioritize your health, privacy, and security.
                 Please read our guidelines to understand how we protect you and
                 what we expect from our users.
               </p>
@@ -70,7 +70,7 @@ export default function Policy() {
               Agreement of Terms
             </h2>
             <p className="text-(--color-text-secondary) dark:text-gray-400 leading-relaxed">
-              By accessing and using the Rochetta platform, you agree to be
+              By accessing and using the Harbolife platform, you agree to be
               bound by these Terms and Conditions. If you do not agree with any
               part of these terms, please do not use our services. These terms
               apply to all visitors, users, and others who access the pharmacy

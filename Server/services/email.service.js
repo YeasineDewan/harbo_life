@@ -29,7 +29,7 @@ const getTransporter = () => {
 export const sendEmail = async ({ to, subject, html }) => {
   try {
     const info = await getTransporter().sendMail({
-      from: `"Rochetta 💊" <${process.env.EMAIL_USER}>`,
+      from: `"Harbolife 🌿" <${process.env.EMAIL_USER}>`,
       to,
       subject,
       html,
@@ -50,7 +50,7 @@ export const sendWelcomeEmail = async (email, name) => {
   const html = getWelcomeTemplate(name);
   return sendEmail({
     to: email,
-    subject: "Welcome to Rochetta! 👋",
+    subject: "Welcome to Harbolife! 👋",
     html,
   }).catch((err) => {
     console.error(`Failed to send welcome email to ${email}:`, err.message);
@@ -67,7 +67,7 @@ export const sendOrderConfirmationEmail = async (email, name, order) => {
   const html = getOrderConfirmationTemplate(name, order);
   return sendEmail({
     to: email,
-    subject: "Order Confirmation - Rochetta 📦",
+    subject: "Order Confirmation - Harbolife 📦",
     html,
   }).catch((err) => {
     console.error(`Failed to send order confirmation email to ${email}:`, err.message);

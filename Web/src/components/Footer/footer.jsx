@@ -8,11 +8,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start">
             <h4 className="font-['Pacifico'] text-3xl text-(--color-warning-400) mb-4 tracking-wide">
-              Rochetta
+              Harbolife
             </h4>
             <p className="text-gray-300 text-sm leading-relaxed max-w-sm">
-              Your go-to pharmacy marketplace for fast, reliable, and affordable
-              healthcare products.
+              Your trusted platform for natural and integrative medicine — fast, reliable, and holistic healthcare.
             </p>
           </div>
 
@@ -74,7 +73,7 @@ export default function Footer() {
                   className="w-5 h-5 text-(--color-warning-400)"
                   aria-hidden="true"
                 />
-                <span>support@rochetta.com</span>
+                <span>support@harbolife.com</span>
               </div>
               <div className="flex items-center gap-3 justify-center md:justify-start">
                 <Phone
@@ -113,7 +112,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-600/50 mt-8 pt-4 items-center gap-4 text-center">
           <p className="text-sm text-gray-400 font-medium">
-            &copy; {new Date().getFullYear()} Rochetta. All rights reserved.
+            &copy; {new Date().getFullYear()} Harbolife. All rights reserved.
           </p>
         </div>
       </div>

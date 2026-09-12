@@ -14,10 +14,10 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <Link
             to="/"
-            aria-label="Rochetta Home"
+            aria-label="Harbolife Home"
             className="font-['Pacifico'] text-3xl tracking-wide text-white flex-shrink-0 hover:opacity-90 transition-opacity"
           >
-            Rochetta
+            Harbolife
           </Link>
 
           <div className="hidden md:flex flex-1 w-full mx-6 lg:mx-12">

@@ -1,6 +1,6 @@
 export const corsOptions = {
   origin: [
-    "https://rochetta-v5sh.vercel.app",
+    "https://harbolife.vercel.app",
     "http://localhost:5173"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],

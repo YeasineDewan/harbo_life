@@ -55,7 +55,7 @@ const ChatWindow = ({ onClose }) => {
                 </svg>
               </div>
               <h3 className="font-semibold text-(--color-text-primary) dark:text-[#F9FAFB]">
-                Rochetta Assistant
+                Harbolife Assistant
               </h3>
             </div>
           </div>

@@ -205,7 +205,7 @@ export const CreateOrderController = async (req, res, next) => {
         const billingData = {
           first_name: names[0] || "Guest",
           last_name: names.slice(1).join(" ") || "Customer",
-          email: user.email || "no-email@rochetta.com",
+          email: user.email || "no-email@harbolife.com",
           phone_number: address.phone || user.phone || "01000000000",
           street: address.street || "NA",
           building: "NA",

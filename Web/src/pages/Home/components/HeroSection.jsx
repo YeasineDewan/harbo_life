@@ -10,10 +10,10 @@ export default function HeroSection() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left z-10 pb-12 md:pb-0 lg:pb-20">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Welcome to Rochetta
+              Welcome to Harbolife
             </h1>
             <p className="text-lg md:text-xl text-green-50 mb-8 max-w-2xl mx-auto md:mx-0">
-              Your online pharmacy — delivering trusted medicines and care,
+              Your natural & integrative medicine platform — delivering trusted care,
               anytime, anywhere.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">

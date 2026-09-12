@@ -5,7 +5,7 @@ export default function AboutSystem() {
   const features = [
     {
       icon: <Cpu className="w-8 h-8 text-emerald-500" />,
-      title: "Rochetta AI Chatbot Assist",
+      title: "Harbolife AI Chatbot Assist",
       desc: "Our smart AI agent provides 24/7 support. Consult regarding dosages, search for alternative medications, and get instant answers about stock availability.",
     },
     {
@@ -33,7 +33,7 @@ export default function AboutSystem() {
     },
     {
       step: "02",
-      title: "Consult Rochetta AI",
+      title: "Consult Harbolife AI",
       desc: "Chat with our virtual assistant for guidance on dosage, ingredients, and alternatives.",
     },
     {
@@ -66,11 +66,11 @@ export default function AboutSystem() {
                 System Overview
               </span>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mt-4 mb-6 leading-tight">
-                Rochetta Smart Pharmacy Network
+                Harbolife Smart Wellness Network
               </h1>
               <p className="text-base sm:text-lg text-emerald-100/90 leading-relaxed mb-8">
-                Rochetta bridges the gap between digital convenience and pharmaceutical security. 
-                Our platform incorporates intelligent prescription auditing, AI-powered dosage consultation, 
+                Harbolife bridges the gap between digital convenience and integrative health. 
+                Our platform incorporates intelligent prescription auditing, AI-powered consultation, 
                 and cold-chain courier tracking to construct a modern digital healthcare ecosystem.
               </p>
               <div className="flex gap-4">
@@ -115,7 +115,7 @@ export default function AboutSystem() {
               Designed For Health Security
             </h2>
             <p className="text-gray-600 dark:text-gray-400">
-              Rochetta integrates automation alongside licensed pharmacists to offer quick dispatching without sacrificing health safety.
+              Harbolife integrates automation alongside licensed practitioners to offer quick dispatching without sacrificing health safety.
             </p>
           </div>
 
@@ -143,7 +143,7 @@ export default function AboutSystem() {
         <div className="bg-(--color-surface-card) dark:bg-[#1e1e1e] border border-(--color-border-base) dark:border-gray-800 rounded-3xl p-8 sm:p-12 mb-16">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl font-black text-gray-900 dark:text-white mb-4">
-              How Rochetta Operates
+              How Harbolife Operates
             </h2>
             <p className="text-gray-600 dark:text-gray-400">
               A smooth process from your first click to medication receipt.
