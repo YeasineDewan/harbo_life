@@ -5,6 +5,13 @@ import MobileMenu from "./components/MobileMenu";
 import NotificationDropdown from "../../features/notifications/components/NotificationDropdown";
 import { useSelector } from "react-redux";
 
+const SUB_NAV_LINKS = [
+  { label: "Diabetes Care", to: "/categories/diabetes-care" },
+  { label: "First Aid", to: "/categories/first-aid" },
+  { label: "Pain Relief", to: "/categories/pain-relief" },
+  { label: "Cold And Flu", to: "/categories/cold-and-flu" },
+];
+
 export default function Header() {
   const { isAuthenticated } = useSelector((state) => state.auth);
 
@@ -33,6 +40,25 @@ export default function Header() {
             <DesktopNav />
             <MobileMenu />
           </div>
+        </div>
+      </div>
+      {/* Sub-header */}
+      <div className="w-full bg-white dark:bg-(--color-primary-950) border-b border-gray-200 dark:border-(--color-primary-800)">
+        <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10">
+          <div className="hidden md:flex items-center gap-8">
+            {SUB_NAV_LINKS.map(({ label, to }) => (
+              <Link
+                key={to}
+                to={to}
+                className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-(--color-primary-700) transition-colors"
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+          <span className="ml-auto text-sm font-semibold text-white bg-(--color-primary-700) px-4 py-1 rounded">
+            Free Shipping Order By August
+          </span>
         </div>
       </div>
     </nav>
