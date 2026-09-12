@@ -45,7 +45,7 @@ export default function Header() {
       {/* Sub-header */}
       <div className="w-full bg-white dark:bg-(--color-primary-950) border-b border-gray-200 dark:border-(--color-primary-800)">
         <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10">
-          <div className="hidden md:flex items-center gap-8">
+          <div className="flex items-center gap-8">
             {SUB_NAV_LINKS.map(({ label, to }) => (
               <Link
                 key={to}
