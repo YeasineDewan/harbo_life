@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { authMiddleware } from "../../middleware/auth.middlware.js";
 import { checkRole } from "../../middleware/check_roles.middleware.js";
+import { ForbiddenError } from "../../utils/errors.js";
 import {
   GetUserProfileController,
   UpdateAvatarController,
@@ -32,6 +33,12 @@ router.get("/me", GetUserProfileController);
 
 router.patch(
   "/update-profile/:id",
+  (req, res, next) => {
+    if (req.user._id.toString() !== req.params.id && !["admin", "super_admin"].includes(req.user.role)) {
+      return next(new ForbiddenError("Forbidden: You can only update your own profile"));
+    }
+    next();
+  },
   validate(updateProfileSchema),
   UpdateUserController,
 );
@@ -45,7 +52,7 @@ router.patch(
 
 router.post(
   "/create",
-  checkRole("super_admin", "admin"),
+  checkRole(["super_admin", "admin"]),
   validate(createUserSchema),
   CreateUserController,
 );
@@ -56,22 +63,22 @@ router.get(
   GetCouriersListController,
 );
 
-router.get("/:id", checkRole("super_admin", "admin"), GetUserByIdController);
+router.get("/:id", checkRole(["super_admin", "admin"]), GetUserByIdController);
 
-router.get("/", checkRole("super_admin", "admin"), GetAllUsersController);
+router.get("/", checkRole(["super_admin", "admin"]), GetAllUsersController);
 
-router.delete("/:id", checkRole("super_admin", "admin"), DeleteUserController);
+router.delete("/:id", checkRole(["super_admin", "admin"]), DeleteUserController);
 
 router.patch(
   "/:id/status",
-  checkRole("super_admin", "admin"),
+  checkRole(["super_admin", "admin"]),
   validate(toggleActiveSchema),
   ToggleUserActiveController,
 );
 
 router.patch(
   "/:id/role",
-  checkRole("super_admin", "admin"),
+  checkRole(["super_admin", "admin"]),
   UpdateUserRoleController,
 );
 

@@ -5,6 +5,8 @@ import morgan from "morgan";
 import compression from "compression";
 import rateLimit from "express-rate-limit";
 import hpp from "hpp";
+import mongoSanitize from "express-mongo-sanitize";
+import xss from "xss-clean";
 import { corsOptions } from "./config/corsOptions.js";
 import globalErrorHandler from "./middleware/global_error_handler.middleware.js";
 import { ApiRouter } from "./routers/index.js";
@@ -29,9 +31,11 @@ app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
 app.use(cors(corsOptions));
 app.use(compression());
-app.use(morgan("dev"));
+if (process.env.NODE_ENV !== "production") app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(hpp());
+app.use(mongoSanitize());
+app.use(xss());
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, "public")));

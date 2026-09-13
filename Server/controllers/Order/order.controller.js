@@ -557,10 +557,10 @@ export const PaymobWebhookController = async (req, res, next) => {
       throw new BadRequestError("Missing hmac or transaction object");
     }
 
-    // const isValidHmac = verifyPaymobHmac(hmac, obj, process.env.PAYMOB_HMAC_SECRET);
-    // if (!isValidHmac) {
-    //   throw new BadRequestError("Invalid HMAC signature");
-    // }
+    const isValidHmac = verifyPaymobHmac(hmac, obj, process.env.PAYMOB_HMAC_SECRET);
+    if (!isValidHmac) {
+      throw new BadRequestError("Invalid HMAC signature");
+    }
 
     const merchantOrderId = obj.order?.merchant_order_id;
     const paymobOrderId = obj.order?.id || obj.order;
