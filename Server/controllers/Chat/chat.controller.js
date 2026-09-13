@@ -2,7 +2,7 @@ import { Chat } from "../../models/Chat/chat.model.js";
 import Product from "../../models/Product/product.model.js";
 import { Order } from "../../models/Order/order.model.js";
 import { Cart } from "../../models/Cart/cart.model.js";
-import groq from "../../config/groq.js";
+import openrouter from "../../config/openrouter.js";
 import { BadRequestError } from "../../utils/errors.js";
 import { getDbContext } from "../../helpers/chat.helpers.js";
 
@@ -46,7 +46,7 @@ export const sendMessage = async (req, res, next) => {
     // Get Database Grounding Context dynamically
     const dbContext = await getDbContext(req.user._id, message);
 
-    const defaultModel = process.env.GROQ_MODEL || "openai/gpt-oss-20b";
+    const defaultModel = process.env.OPENROUTER_MODEL || "openai/gpt-4o-mini";
 
     // Setup the system instructions
     const systemPrompt = `You are an expert Pharmacy Assistant chatbot for our e-commerce platform.
@@ -75,16 +75,20 @@ export const sendMessage = async (req, res, next) => {
     }));
 
     // Form request payload for Groq
-    const groqMessages = [
+    const chatMessages = [
       { role: "system", content: systemPrompt },
       ...recentMessages,
       { role: "user", content: message }
     ];
 
-    // Call Groq API
-    const response = await groq.chat.completions.create({
+    // Call OpenRouter API
+    if (!openrouter) {
+      throw new BadRequestError("Chat service is not configured");
+    }
+
+    const response = await openrouter.chat.completions.create({
       model: defaultModel,
-      messages: groqMessages,
+      messages: chatMessages,
       temperature: 0.7,
       max_tokens: 1024,
     });

@@ -1,6 +1,7 @@
 import { config } from "dotenv";
 import app from "./app.js";
 import dbconnect from "./config/mongo.js";
+import { seedDefaultCategories } from "./utils/seed.js";
 
 config();
 
@@ -8,7 +9,8 @@ const port = process.env.PORT || 3000;
 const HOST = process.env.IP || "0.0.0.0";
 
 dbconnect()
-  .then(() => {
+  .then(async () => {
+    await seedDefaultCategories();
     app.listen(port, HOST, () =>
       console.log(`Server is running on http://${HOST}:${port}`),
     );

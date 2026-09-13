@@ -1,7 +1,6 @@
 import { Category } from "../../models/Category/category.model.js";
 import { BadRequestError, ConflictError, NotFoundError } from "../../utils/errors.js";
 import { validateObjectId } from "../../utils/validateObjectId.js";
-import { PRODUCT_CATEGORIES } from "../../utils/constants.js";
 import cloudinary from "../../config/cloudinary.js";
 import slugify from "slugify";
 

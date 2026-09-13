@@ -1,11 +1,3 @@
-import OpenAI from "openai";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-const groq = new OpenAI({
-    apiKey: process.env.GROQ_API_KEY,
-    baseURL: "https://api.groq.com/openai/v1",
-});
-
-export default groq;
+// Groq is no longer used for chat; the app now uses OpenRouter (OpenAI-compatible).
+// This re-export keeps the module resolvable for any legacy references.
+export { default } from "./openrouter.js";

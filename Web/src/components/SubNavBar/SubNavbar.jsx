@@ -1,36 +1,58 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useGetCategoriesQuery } from "../../features/admin/categories/api/categoriesApi";
+import { Truck } from "lucide-react";
+
+const FALLBACK_CATEGORIES = [
+  { _id: "fallback-diabetes-care", name: "Diabetes Care", slug: "diabetes-care" },
+  { _id: "fallback-first-aid", name: "First Aid", slug: "first-aid" },
+  { _id: "fallback-pain-relief", name: "Pain Relief", slug: "pain-relief" },
+  { _id: "fallback-cold-and-flu", name: "Cold And Flu", slug: "cold-and-flu" },
+];
 
 export default function SubNavbar() {
   const { data, isLoading } = useGetCategoriesQuery();
-  const categories = data?.data || [];
+  const location = useLocation();
+  const apiCategories = data?.data || [];
+  const categories = apiCategories.length > 0 ? apiCategories : FALLBACK_CATEGORIES;
 
   return (
-    <nav className="fixed top-16 w-full z-40 bg-(--color-surface-page) dark:bg-(--color-panel-dark) border-b border-(--color-border-base) dark:border-(--color-border-subtle) shadow-sm">
-      <div className="w-full px-2 sm:px-6 lg:px-8 py-3 flex flex-col md:flex-row justify-between items-center gap-3">
-        <div className="flex justify-start gap-2 w-full overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
+    <nav className="fixed top-16 w-full z-40 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-11 gap-4">
+
+        {/* Category links */}
+        <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide flex-1 min-w-0">
           {isLoading ? (
-            <div className="flex gap-4 animate-pulse">
-              <div className="h-8 w-24 bg-gray-200 dark:bg-gray-700 rounded-md"></div>
-              <div className="h-8 w-24 bg-gray-200 dark:bg-gray-700 rounded-md"></div>
-              <div className="h-8 w-24 bg-gray-200 dark:bg-gray-700 rounded-md"></div>
+            <div className="flex gap-3 animate-pulse">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="h-6 w-20 bg-gray-200 dark:bg-gray-700 rounded" />
+              ))}
             </div>
           ) : (
-            categories.map((category) => (
-              <Link
-                key={category._id}
-                to={`/category/${category.slug}`}
-                className="px-2 md:px-4 whitespace-nowrap py-1.5 rounded-md text-sm md:text-base font-medium text-gray-900 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 capitalize transition-colors"
-              >
-                {category.name}
-              </Link>
-            ))
+            categories.map((category) => {
+              const isActive = location.pathname === `/category/${category.slug}`;
+              return (
+                <Link
+                  key={category._id}
+                  to={`/category/${category.slug}`}
+                  className={`whitespace-nowrap px-3 py-1 rounded text-sm font-medium capitalize transition-colors ${
+                    isActive
+                      ? "bg-(--color-primary-700) text-white"
+                      : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+                  }`}
+                >
+                  {category.name}
+                </Link>
+              );
+            })
           )}
         </div>
 
-        <div className="hidden md:block bg-(--color-primary-700) dark:bg-(--color-primary-800) text-white px-5 py-2 rounded-lg text-sm font-bold whitespace-nowrap shadow-sm w-full md:w-auto text-center border border-(--color-primary-600)">
-          Free Shipping Order By August
+        {/* Promo badge */}
+        <div className="hidden sm:flex items-center gap-1.5 text-xs font-semibold text-(--color-primary-700) dark:text-blue-400 whitespace-nowrap shrink-0">
+          <Truck className="w-3.5 h-3.5" />
+          Free Shipping · Orders over EGP 200
         </div>
+
       </div>
     </nav>
   );
